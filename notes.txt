@@ -1,0 +1,8 @@
+Command to run linting tool:
+docker-compose run --rm app sh -c "flake8"
+
+Command to run the django project:
+docker-compose up -d
+
+Command to run unit tests:
+docker-compose run --rm app sh -c "python manage.py test"
