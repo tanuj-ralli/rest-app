@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   app:
-    container_name: rest-application
+    container_name: rest-app
     build:
       context: .
       args:
@@ -14,3 +14,23 @@ services:
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
       # sh -c "sleep infinity"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASSWORD=changeme
+    depends_on:
+      - db
+  
+  db:
+    container_name: postgres
+    image: postgres:13-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=changeme
+
+volumes:
+  dev-db-data:
