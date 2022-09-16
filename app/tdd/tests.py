@@ -1,8 +1,9 @@
-from django.test import TestCase, SimpleTestCase
+from django.test import SimpleTestCase
 
 from . import views
 
 # Create your tests here.
+
 
 class TestCases(SimpleTestCase):
     def test_remove_duplicate(self):
