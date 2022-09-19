@@ -1,7 +1,6 @@
 """
 Serializers for the user API view.
 """
-from xmlrpc.client import ServerProxy
 from django.contrib.auth import (
     get_user_model,
     authenticate,
